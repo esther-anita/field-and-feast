@@ -82,14 +82,14 @@ header,footer{
 }
 
 p, ul{
-  padding: 4px 0;
-  max-width: 65ch;
+  padding: 8px 0;
+  max-width: 55ch;
   font-weight: 400;
 }
 
-h1, h2, h3{
+h1, h2,h3{
   padding: 10px 0;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 h1{
@@ -102,11 +102,18 @@ h2{
 
 h3{
   font-size: 1.5rem;
+  padding: 0;  
+}
+
+ul{
+  list-style: disc;
+  list-style-position: inside;
 }
 
 /*--- HEADER ----*/
 header{
   grid-area: "header";
+  padding-top: 16px;
 }
 
 header img{
@@ -159,6 +166,18 @@ main{
 
 #offerings{
   grid-area: "offerings";
+}
+
+#offerings section{
+  background-color: var(--olive-green);
+  border-radius: 8px;
+  padding: 16px;
+  color: var(--linen);
+  margin: 16px 0;
+  }
+
+#offerings p, #offerings ul {
+  padding: 0;
 }
 
 #gallery{
