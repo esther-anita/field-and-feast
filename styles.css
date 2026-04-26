@@ -1,3 +1,7 @@
+/*CSS by Esther Dronyi*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 /* CSS Reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -43,9 +47,10 @@ table {
   border-spacing: 0;
 }
 
+/* ---- ROOT -----*/
 
 :root{
-/*---- COLORS ----*/
+  /*---- COLORS ----*/
   --midnight-blue: #1F2A44;
   --olive-green: #76885B;
   --champagne-gold: #E5C185;
@@ -53,14 +58,13 @@ table {
   --dark-charcoal: #2B2B2B;
   --soft-white: #FAF9F6;
 
+  /*---- SHADOWS -----*/
   --text-shadow-sm: 0px 2px 4px;
   --text-shadow-med: 0px 5px 10px;
   --box-shadow-sm: 0 1px 8px -3px;
 }
 
 /*--- GLOBAL STYLES ----*/
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-
 body{
   box-sizing: border-box;
   margin: 0 auto;
@@ -69,8 +73,10 @@ body{
   font-weight: normal;
   line-height: 1.25;
   color: var(--dark-charcoal);
+  min-width: 450px;
+  width: 100%;
   /*background-color: #2B2B2B;  REMEMBER TO COMMENT THIS OUT LATER
-  max-width: 450px;*/
+  */
 }
 
 header,footer{
@@ -80,7 +86,7 @@ header,footer{
 }
 
 p, ul{
-  padding: 2vh 0;
+  padding: 8px 0;
   font-weight: 400;
 }
 
@@ -112,10 +118,6 @@ a{
   font-weight: 600;
 }
 
-a:hover{
-  text-shadow: var(--text-shadow-sm);
-  transform: scale(1.1);
-}
 
 /*--- HEADER ----*/
 header{
@@ -157,9 +159,7 @@ nav a{
   font-size: 1.5rem;
 }
 
-nav a:hover{
-  text-shadow: var(--text-shadow-med);
-}
+
 
 /* --- MAIN STYLES ---*/
 
@@ -237,7 +237,6 @@ main{
 
 footer{
   padding: 24px;
-  grid-area: "footer";
 }
 
 footer a{
@@ -264,10 +263,6 @@ address{
     column-gap: 16px;
   }
 
-  .offering-card{
-    grid-area: "offering-card";
-  }
-
   #offerings h2, #offerings section:last-of-type{
     grid-column: 1/-1;
   }
@@ -290,14 +285,6 @@ address{
 /* ----- LARGE BREAKPOINT -----*/
 @media all and (min-width:900px) {
 
-/*LARGE OFFERINGS SECTION LAYOUT*/
-  #offerings{
-    grid-template-columns: auto auto auto;
-    grid-template-areas: 
-      "offering-card,  offering-card" 
-      "offering-card ";
-  }
-
 /*LARGE GALLERY SECTION LAYOUT*/
   #gallery{
     grid-template-columns: auto auto auto;
@@ -310,6 +297,16 @@ address{
 
 /* ------- X-LARGE BREAKPOINT ----*/
 @media all and (min-width:1200px) {
+
+/* --- probs a laptop by now ----*/
+a:hover{
+  text-shadow: var(--text-shadow-sm);
+  transform: scale(1.1);
+}
+
+nav a:hover{
+  text-shadow: var(--text-shadow-med);
+}
 
 /*X-LARGE GALLERY SECTION LAYOUT*/
   #gallery{
