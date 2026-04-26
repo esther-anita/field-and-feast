@@ -43,11 +43,8 @@ table {
   border-spacing: 0;
 }
 
+
 :root{
-
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-
-
 /*---- COLORS ----*/
   --midnight-blue: #1F2A44;
   --olive-green: #76885B;
@@ -59,20 +56,21 @@ table {
   --text-shadow-sm: 0px 2px 4px;
   --text-shadow-med: 0px 5px 10px;
   --box-shadow-sm: 0 1px 8px -3px;
-
 }
 
 /*--- GLOBAL STYLES ----*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 body{
   box-sizing: border-box;
-  max-width: 450px;
   margin: 0 auto;
   font-family: "Playfair Display";
   font-size: .85rem;
   font-weight: normal;
   line-height: 1.25;
   color: var(--dark-charcoal);
-  background-color: #2B2B2B;  /*REMEMBER TO COMMENT THIS OUT LATER*/
+  /*background-color: #2B2B2B;  REMEMBER TO COMMENT THIS OUT LATER
+  max-width: 450px;*/
 }
 
 header,footer{
@@ -82,8 +80,7 @@ header,footer{
 }
 
 p, ul{
-  padding: 8px 0;
-  max-width: 55ch;
+  padding: 2vh 0;
   font-weight: 400;
 }
 
@@ -97,7 +94,7 @@ h1{
 }
 
 h2{
-  font-size: 1.75rem;
+  font-size: 2.25rem;
 }
 
 h3{
@@ -122,12 +119,13 @@ a:hover{
 
 /*--- HEADER ----*/
 header{
-  grid-area: "header";
   padding-top: 16px;
+  margin: 0 auto;
+
 }
 
 header img{
-  width: 10vw;
+  width: 30vw;
   height: auto;
 }
 
@@ -135,10 +133,12 @@ header p{
   font-style: italic;
   font-size: 1.1rem;
   padding-bottom: 24px;
+  margin: 0 auto;
 }
 
 nav{
   background-color: var(--champagne-gold);
+
 }
 
 nav ul{
@@ -146,6 +146,7 @@ nav ul{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin: 0 auto;
 }
 
 nav a{
@@ -153,7 +154,7 @@ nav a{
   color: var(--midnight-blue);
   font-weight: 800;
   padding: 10px;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 nav a:hover{
@@ -163,9 +164,8 @@ nav a:hover{
 /* --- MAIN STYLES ---*/
 
 main{
-  padding: 24px;
   background-color: var(--soft-white);
-
+  padding: 4vh 10vw;
 }
 
 #about, #offerings, #gallery{
@@ -197,6 +197,7 @@ main{
   display: grid;
   grid-template-columns: auto;
   grid-template-areas: "gallery-card, gallery-card, gallery-card, gallery-card, gallery-card";
+
 }
 
 .gallery-card{
@@ -208,11 +209,17 @@ main{
   text-align: center;
   text-wrap: wrap;
   font-style: italic;
+  place-items: center;
 }
 
 #gallery img{
  width: 100%;
  border-radius: 8px 8px 0 0;
+}
+
+#gallery p{
+  padding: 0 8px;
+  
 }
 
 #gallery a{
@@ -239,28 +246,75 @@ footer a{
 }
 
 address{
-  padding: 48px 0;
+  padding: 24px 0;
 }
 
 /* ---- MEDIUM BREAKPOINT --- */
-@media all and (min-width:600px){
+@media all and (min-width:600px) {
 
+  body{
+    line-height: 1.4;
+  }
+/*MEDIUM OFFERINGS SECTION LAYOUT*/
+  #offerings{
+    grid-template-areas: 
+      "offering-card offering-card" 
+      "offering-card ";
+    grid-template-columns: auto auto;
+    column-gap: 16px;
+  }
 
+  .offering-card{
+    grid-area: "offering-card";
+  }
 
+  #offerings h2, #offerings section:last-of-type{
+    grid-column: 1/-1;
+  }
+
+/*MEDIUM GALLERY SECTION LAYOUT*/
+  #gallery{
+    grid-template-columns: auto auto;
+    grid-template-areas: 
+    "gallery-card gallery-card" 
+    "gallery-card, gallery-card" 
+    "gallery-card";
+    column-gap: 16px;
+  }
+
+  #gallery h2, #gallery p, #gallery a {
+    grid-column: 1/-1;
+  }
 }
-
-
 
 /* ----- LARGE BREAKPOINT -----*/
 @media all and (min-width:900px) {
 
+/*LARGE OFFERINGS SECTION LAYOUT*/
+  #offerings{
+    grid-template-columns: auto auto auto;
+    grid-template-areas: 
+      "offering-card,  offering-card" 
+      "offering-card ";
+  }
+
+/*LARGE GALLERY SECTION LAYOUT*/
+  #gallery{
+    grid-template-columns: auto auto auto;
+    grid-template-areas: 
+    "gallery-card gallery-card gallery-card" 
+    "gallery-card gallery-card" ;
+  }
 
 }
-
-
 
 /* ------- X-LARGE BREAKPOINT ----*/
 @media all and (min-width:1200px) {
 
-
+/*X-LARGE GALLERY SECTION LAYOUT*/
+  #gallery{
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-areas: 
+    "gallery-card gallery-card gallery-card gallery-card gallery-card" ;
+  }
 }
