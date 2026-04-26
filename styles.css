@@ -56,17 +56,17 @@ table {
   --dark-charcoal: #2B2B2B;
   --soft-white: #FAF9F6;
 
+  --text-shadow-sm: 0px 2px 4px;
+  --text-shadow-med: 0px 5px 10px;
+  --box-shadow-sm: 0 1px 8px -3px;
+
 }
 
 /*--- GLOBAL STYLES ----*/
 body{
   box-sizing: border-box;
-  max-width: 450px;  /* -- mobile first sizing, small ---*/
-  width: 100%;
+  max-width: 450px;
   margin: 0 auto;
-  display: grid;
-  grid-template-areas: "header, about, offerings, gallery,footer";
-  grid-template-columns: auto;
   font-family: "Playfair Display";
   font-size: .85rem;
   font-weight: normal;
@@ -110,6 +110,16 @@ ul{
   list-style-position: inside;
 }
 
+a{
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover{
+  text-shadow: var(--text-shadow-sm);
+  transform: scale(1.1);
+}
+
 /*--- HEADER ----*/
 header{
   grid-area: "header";
@@ -140,11 +150,14 @@ nav ul{
 
 nav a{
   display: block;
-  text-decoration: none;
   color: var(--midnight-blue);
   font-weight: 800;
   padding: 10px;
   font-size: 1.1rem;
+}
+
+nav a:hover{
+  text-shadow: var(--text-shadow-med);
 }
 
 /* --- MAIN STYLES ---*/
@@ -160,20 +173,20 @@ main{
   border-bottom: 2px solid var(--champagne-gold);
 }
 
-#about{
-  grid-area: "about";
-}
 
 #offerings{
-  grid-area: "offerings";
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas: "offering-card, offering-card, offering-card";
 }
 
-#offerings section{
+.offering-card{
+  grid-area: "offering-card";
   background-color: var(--olive-green);
   border-radius: 8px;
   padding: 16px;
   color: var(--linen);
-  margin: 16px 0;
+  margin: 8px 0;
   }
 
 #offerings p, #offerings ul {
@@ -181,10 +194,38 @@ main{
 }
 
 #gallery{
-  grid-area: "gallery";
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas: "gallery-card, gallery-card, gallery-card, gallery-card, gallery-card";
 }
 
+.gallery-card{
+  border-radius: 8px;
+  box-shadow: var(--box-shadow-sm);
+  margin: 16px 0;
+  width: 100%;
+  grid-area: "gallery-card";
+  text-align: center;
+  text-wrap: wrap;
+  font-style: italic;
+}
 
+#gallery img{
+ width: 100%;
+ border-radius: 8px 8px 0 0;
+}
+
+#gallery a{
+  display: block;
+  width: 100%;
+  background-color: var(--olive-green);
+  border-radius: 4px;
+  padding: 8px 0;
+  color: var(--linen);
+  font-style: normal;
+  text-align: center;
+
+}
 /* --- FOOTER STYLES ---*/
 
 footer{
@@ -194,10 +235,32 @@ footer{
 
 footer a{
   color: var(--champagne-gold);
-  font-weight: 600;
-  text-decoration: none;
+
 }
 
 address{
   padding: 48px 0;
+}
+
+/* ---- MEDIUM BREAKPOINT --- */
+@media all and (min-width:600px){
+
+
+
+}
+
+
+
+/* ----- LARGE BREAKPOINT -----*/
+@media all and (min-width:900px) {
+
+
+}
+
+
+
+/* ------- X-LARGE BREAKPOINT ----*/
+@media all and (min-width:1200px) {
+
+
 }
