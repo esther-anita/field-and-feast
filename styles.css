@@ -60,17 +60,25 @@ table {
 
 /*--- GLOBAL STYLES ----*/
 body{
-  width: 100vw;
+  box-sizing: border-box;
   max-width: 450px;  /* -- mobile first sizing, small ---*/
+  width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-areas: "header,about-us, offerings, gallery,footer";
-  grid-area: auto;
+  grid-template-areas: "header, about, offerings, gallery,footer";
+  grid-template-columns: auto;
   font-family: "Playfair Display";
   font-size: .85rem;
   font-weight: normal;
   line-height: 1.25;
   color: var(--dark-charcoal);
+  background-color: #2B2B2B;  /*REMEMBER TO COMMENT THIS OUT LATER*/
+}
+
+header,footer{
+  background-color: var(--midnight-blue);
+  color: var(--soft-white);
+  text-align: center;
 }
 
 p, ul{
@@ -95,11 +103,10 @@ h2{
 h3{
   font-size: 1.5rem;
 }
+
 /*--- HEADER ----*/
 header{
-  background-color: var(--midnight-blue);
-  color: var(--soft-white);
-  text-align: center;
+  grid-area: "header";
 }
 
 header img{
@@ -136,11 +143,42 @@ nav a{
 /* --- MAIN STYLES ---*/
 
 main{
+  padding: 24px;
   background-color: var(--soft-white);
-  padding:24px;
 
 }
 
+#about, #offerings, #gallery{
+  padding: 16px 0;
+  border-bottom: 2px solid var(--champagne-gold);
+}
+
+#about{
+  grid-area: "about";
+}
+
+#offerings{
+  grid-area: "offerings";
+}
+
+#gallery{
+  grid-area: "gallery";
+}
+
+
+/* --- FOOTER STYLES ---*/
+
 footer{
-  background-color: var(--midnight-blue);
+  padding: 24px;
+  grid-area: "footer";
+}
+
+footer a{
+  color: var(--champagne-gold);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+address{
+  padding: 48px 0;
 }
